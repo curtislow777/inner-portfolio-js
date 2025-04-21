@@ -2,11 +2,20 @@
 @use "styles/variables" as vars;
 
 :root {
-  @include vars.theme-vars(vars.$light-theme); // Default to light theme
+  @include vars.theme-vars(vars.$light-theme);
 }
 
 .light-theme {
   @include vars.theme-vars(vars.$light-theme);
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+  text-decoration: none;
 }
 
 * {
@@ -25,9 +34,6 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-}
-
-body {
   background: linear-gradient(135deg, #0a192f 0%, #182847 100%);
   color: #e6f1ff;
 }
@@ -47,14 +53,11 @@ body {
   align-items: center;
   background-color: var(--bg);
   color: var(--text);
-  /* Removed the border-bottom that was creating the underline effect */
-  /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-/* The rest of the nav styles remain the same to preserve the hover underline effect */
 .logo {
   font-size: 2rem;
   font-weight: 700;
