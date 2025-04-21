@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creative Developer Portfolio</title>
+    <link rel="stylesheet" href="./src/style.scss" />
+    <script
+      src="https://kit.fontawesome.com/3927294e6b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Navigation Bar -->
+      <nav class="nav-container">
+        <a href="index.html" class="logo">index</a>
+        <div class="nav-items">
+          <a href="about.html" class="nav-item">About</a>
+          <a href="projects.html" class="nav-item">Projects</a>
+          <a href="contact.html" class="nav-item">Contact</a>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <div class="content">
+        <!-- Left Side - Text -->
+        <div class="text-section">
+          <h1 class="name">Curtis</h1>
+          <h2 class="title">Interactive Developer</h2>
+          <p class="description">a</p>
+        </div>
+
+        <!-- Right Side - 3D Model -->
+        <div class="model-section">
+          <canvas id="three-canvas"></canvas>
+        </div>
+      </div>
+      <footer class="footer-icons">
+        <a
+          href="https://github.com/yourusername"
+          target="_blank"
+          aria-label="GitHub"
+        >
+          <i class="fab fa-github"></i>
+        </a>
+        <a
+          href="https://linkedin.com/in/yourusername"
+          target="_blank"
+          aria-label="LinkedIn"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:you@example.com" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </footer>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
