@@ -25,7 +25,7 @@
 
       <!-- Projects Content -->
       <div class="projects-wrapper">
-        <h1 class="page-title">My Projects</h1>
+        <h1 class="page-title">Projects</h1>
 
         <div class="project-filter">
           <button class="filter-button active">All</button>
@@ -35,7 +35,8 @@
 
         <div class="projects-container">
           <!-- Project 1 -->
-          <div class="project-card">
+          <!-- Project 1 -->
+          <div class="project-card" data-modal="modal-project-1">
             <div class="project-image">
               <img
                 src="/api/placeholder/400/320"
@@ -44,7 +45,10 @@
             </div>
             <div class="project-content">
               <h3 class="project-title">Interactive 3D Portfolio</h3>
-              <p class="project-description">d</p>
+              <p class="project-description">
+                A modern portfolio website showcasing my web development and 3D
+                modeling skills.
+              </p>
               <div class="project-technologies">
                 <span class="tech-tag">HTML5</span>
                 <span class="tech-tag">CSS3</span>
@@ -63,6 +67,30 @@
           </div>
 
           <!-- Project Template -->
+          <!-- <div class="project-card">
+            <div class="project-image">
+              <img src="/api/placeholder/400/320" alt="" />
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Title</h3>
+              <p class="project-description"></p>
+              <div class="project-technologies">
+                <span class="tech-tag"></span>
+                <span class="tech-tag"></span>
+                <span class="tech-tag"></span>
+                <span class="tech-tag"></span>
+              </div>
+              <div class="project-links">
+                <a href="#" target="_blank" aria-label="Github Repository">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="#" target="_blank" aria-label="Live Preview">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
           <div class="project-card">
             <div class="project-image">
               <img src="/api/placeholder/400/320" alt="" />
@@ -86,28 +114,70 @@
               </div>
             </div>
           </div>
-          <!-- Project 5 -->
-          <div class="project-card">
-            <div class="project-image">
-              <img src="/api/placeholder/400/320" alt="" />
+          -->
+        </div>
+      </div>
+
+      <!-- Modal for Project 1: Interactive 3D Portfolio -->
+      <div class="modal" id="modal-project-1">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <div class="modal-header">
+            <h2 class="modal-title">Interactive 3D Portfolio</h2>
+          </div>
+          <div class="modal-body">
+            <div class="modal-image">
+              <img
+                src="/api/placeholder/600/400"
+                alt="Interactive 3D Portfolio"
+              />
             </div>
-            <div class="project-content">
-              <h3 class="project-title">Title</h3>
-              <p class="project-description"></p>
-              <div class="project-technologies">
-                <span class="tech-tag"></span>
-                <span class="tech-tag"></span>
-                <span class="tech-tag"></span>
-                <span class="tech-tag"></span>
+            <div class="modal-details">
+              <div class="modal-description">
+                <h3>Description</h3>
+                <p>
+                  A modern portfolio website showcasing my web development and
+                  3D modeling skills. The site features interactive 3D elements
+                  rendered with Three.js, animated transitions, and responsive
+                  design.
+                </p>
               </div>
-              <div class="project-links">
-                <a href="#" target="_blank" aria-label="Github Repository">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="#" target="_blank" aria-label="Live Preview">
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
+              <div class="modal-tech">
+                <h3>Technologies</h3>
+                <div class="modal-tech-tags">
+                  <span class="tech-tag">HTML5</span>
+                  <span class="tech-tag">CSS3</span>
+                  <span class="tech-tag">JavaScript</span>
+                  <span class="tech-tag">Three.js</span>
+                </div>
               </div>
+              <div class="modal-features">
+                <h3>Key Features</h3>
+                <ul>
+                  <li>Interactive 3D model that responds to mouse movements</li>
+                  <li>Smooth scrolling and animations using GSAP</li>
+                  <li>Fully responsive design that works on all devices</li>
+                  <li>Dark mode with custom color themes</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="modal-links">
+              <a
+                href="https://github.com/yourusername/3d-portfolio"
+                target="_blank"
+                class="modal-btn"
+              >
+                <i class="fab fa-github"></i> View Code
+              </a>
+              <a
+                href="https://your-portfolio-url.com"
+                target="_blank"
+                class="modal-btn primary-btn"
+              >
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
             </div>
           </div>
         </div>
@@ -165,6 +235,97 @@
             });
           });
         });
+      });
+      // Modal functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        // Filter buttons functionality (your existing code)
+        const filterButtons = document.querySelectorAll(".filter-button");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // Remove active class from all buttons
+            filterButtons.forEach((btn) => {
+              btn.classList.remove("active");
+            });
+
+            // Add active class to clicked button
+            this.classList.add("active");
+
+            // In a real implementation, you would filter the projects here
+            const category = this.textContent;
+            console.log(`Filtering by: ${category}`);
+
+            // Animation effect when filtering
+            const projectCards = document.querySelectorAll(".project-card");
+            projectCards.forEach((card) => {
+              card.style.opacity = "0.5";
+              setTimeout(() => {
+                card.style.opacity = "1";
+              }, 300);
+            });
+          });
+        });
+
+        // Modal functionality
+        const projectCards = document.querySelectorAll(".project-card");
+        const modals = document.querySelectorAll(".modal");
+        const closeButtons = document.querySelectorAll(".close-modal");
+
+        // Open the specific modal when a project card is clicked
+        projectCards.forEach((card) => {
+          card.addEventListener("click", function (e) {
+            // Prevent opening the modal when clicking on direct links
+            if (e.target.tagName === "A" || e.target.closest("a")) {
+              return;
+            }
+
+            const modalId = this.getAttribute("data-modal");
+            const modal = document.getElementById(modalId);
+
+            if (modal) {
+              openModal(modal);
+            }
+          });
+        });
+
+        // Function to open a modal
+        function openModal(modal) {
+          modal.classList.add("show");
+          document.body.classList.add("modal-open");
+        }
+
+        // Close modal when clicking the close button
+        closeButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const modal = this.closest(".modal");
+            closeModal(modal);
+          });
+        });
+
+        // Close modal when clicking outside the modal content
+        modals.forEach((modal) => {
+          modal.addEventListener("click", function (event) {
+            if (event.target === this) {
+              closeModal(this);
+            }
+          });
+        });
+
+        // Close modal when pressing ESC key
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") {
+            const openModal = document.querySelector(".modal.show");
+            if (openModal) {
+              closeModal(openModal);
+            }
+          }
+        });
+
+        // Function to close a modal
+        function closeModal(modal) {
+          modal.classList.remove("show");
+          document.body.classList.remove("modal-open");
+        }
       });
     </script>
   </body>
