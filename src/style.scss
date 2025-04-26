@@ -42,6 +42,8 @@ body {
 .container {
   width: 100%;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .logo-container {
@@ -207,7 +209,7 @@ body {
   }
 }
 .footer-icons {
-  margin-top: auto;
+  margin-top: auto; /* This pushes the footer to the bottom */
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -253,6 +255,7 @@ body {
 .project-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 .project-image {
@@ -595,6 +598,16 @@ body.modal-open {
   max-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
+  align-self: stretch; /* Make it take full width within the flex container */
+  width: 100%;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  text-align: left; /* Ensure text is left-aligned */
 }
 
 .about-header {
@@ -627,13 +640,6 @@ body.modal-open {
   color: #8892b0;
   max-width: 600px;
   margin: 0 auto;
-}
-
-.about-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 4rem;
 }
 
 .profile-section {
