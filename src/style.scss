@@ -472,15 +472,14 @@ body {
 }
 
 .modal-image {
-  width: 100%;
-  border-radius: 6px;
-  overflow: hidden;
+  overflow: contain;
 }
 
 .modal-image img {
-  width: 100%;
+  width: 50%;
   height: auto;
   display: block;
+  border-radius: 8px;
 }
 
 .modal-details {
