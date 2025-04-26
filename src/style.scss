@@ -16,6 +16,7 @@ a:hover,
 a:active,
 a:focus {
   text-decoration: none;
+  color: #8892b0;
 }
 
 * {
@@ -34,7 +35,7 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #0a192f 0%, #182847 100%);
+  background: linear-gradient(135deg, #0a192f 0%, #0d1b2a 25%);
   color: #e6f1ff;
 }
 
@@ -43,25 +44,47 @@ body {
   min-height: 100vh;
 }
 
+.logo-container {
+  width: 60px; /* Control visible size */
+  height: 60px; /* Keep it square */
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0e6f0; /* Optional: match your background */
+  border-radius: 8px; /* Optional: rounded corners */
+}
+
+.logo-container img {
+  width: 125%; /* Scale image to container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Make sure it fills the space nicely */
+}
+
 /* Navigation Bar Styles */
 
 /* Modified Navigation Bar Styles */
 .nav-container {
-  padding: 1.5rem 4rem;
+  margin: 1.5rem auto; /* Reduced from 2rem */
+  padding: 0.2rem 2rem; /* Reduced vertical padding further from 0.5rem to 0.3rem */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--bg);
+  background-color: #f0f4ff;
   color: var(--text);
-  position: sticky;
-  top: 0;
+  border-radius: 1rem;
+  width: 80%;
+  max-width: 1600px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  position: relative;
   z-index: 1000;
 }
 
 .logo {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--text);
+  color: #0d1b2a;
   transition: transform 0.3s ease;
   cursor: pointer;
 
@@ -80,7 +103,7 @@ body {
   font-size: 1.5rem;
   cursor: pointer;
   position: relative;
-  color: var(--text);
+  color: #0d1b2a;
   transition: color 0.3s ease;
 
   &:after {
@@ -103,6 +126,15 @@ body {
     }
   }
 }
+
+.nav-container a {
+  color: black;
+}
+
+.nav-container a:hover {
+  color: var(--button-hover);
+}
+
 /* Main Content Styles */
 .content {
   display: flex;
@@ -266,7 +298,7 @@ body {
 
 .tech-tag {
   background-color: rgba(100, 255, 218, 0.1);
-  color: #64ffda;
+  color: var(--button-hover);
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   font-size: 0.8rem;
@@ -284,7 +316,7 @@ body {
 }
 
 .project-links a:hover {
-  color: #64ffda;
+  color: var(--button-hover);
 }
 
 .page-title {
@@ -304,7 +336,7 @@ body {
   transform: translateX(-50%);
   width: 100px;
   height: 4px;
-  background-color: #64ffda;
+  background-color: var(--button-hover);
 }
 
 .projects-wrapper {
@@ -321,24 +353,28 @@ body {
 }
 
 .filter-button {
-  background: none;
-  border: 1px solid #64ffda;
-  color: #64ffda;
+  background-color: rgba(10, 25, 47, 0.6); // soft dark blue background
+  border: 1px solid rgba(204, 214, 246, 0.4); // light outline similar to text color
+  color: #ccd6f6;
   padding: 0.5rem 1rem;
-  border-radius: 4px;
+  border-radius: 8px; // match your card/modal rounded look
   cursor: pointer;
+  font-size: 1rem;
   transition:
     background-color 0.3s ease,
-    color 0.3s ease;
-}
+    color 0.3s ease,
+    transform 0.3s ease;
 
-.filter-button:hover,
-.filter-button.active {
-  background-color: rgba(100, 255, 218, 0.1);
-}
+  &:hover,
+  &.active {
+    background-color: rgba(100, 172, 255, 0.1); // a soft greenish glow, subtle
+    color: var(--button-hover); // matching hover in nav
+    transform: translateY(-2px); // small lift on hover
+  }
 
-.filter-button.active {
-  background-color: rgba(100, 255, 218, 0.2);
+  &.active {
+    background-color: rgba(100, 172, 255, 0.1); // a soft greenish glow, subtle
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -410,7 +446,7 @@ body {
 }
 
 .close-modal:hover {
-  color: #64ffda;
+  color: var(--button-hover);
 }
 
 .modal-header {
@@ -457,7 +493,7 @@ body {
 .modal-description h3,
 .modal-tech h3,
 .modal-features h3 {
-  color: #64ffda;
+  color: var(--button-hover);
   margin-bottom: 1rem;
   font-size: 1.3rem;
 }
@@ -489,7 +525,7 @@ body {
   content: "▹";
   position: absolute;
   left: -1.5rem;
-  color: #64ffda;
+  color: var(--button-hover);
 }
 
 .modal-footer {
@@ -514,8 +550,8 @@ body {
   font-weight: 600;
   transition: all 0.3s ease;
   cursor: pointer;
-  border: 1px solid #64ffda;
-  color: #64ffda;
+  border: 1px solid var(--button-hover);
+  color: var(--button-hover);
   background-color: transparent;
 }
 
@@ -583,7 +619,7 @@ body.modal-open {
   transform: translateX(-50%);
   width: 100px;
   height: 4px;
-  background-color: #64ffda;
+  background-color: var(--button-hover);
 }
 
 .about-subtitle {
@@ -612,7 +648,7 @@ body.modal-open {
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 2rem;
-  border: 4px solid #64ffda;
+  border: 4px solid var(--button-hover);
 }
 
 .profile-image img {
@@ -634,7 +670,7 @@ body.modal-open {
 
 .profile-title {
   font-size: 1.25rem;
-  color: #64ffda;
+  color: var(--button-hover);
   margin-bottom: 1rem;
 }
 
@@ -643,25 +679,6 @@ body.modal-open {
   line-height: 1.6;
   max-width: 400px;
   margin: 0 auto;
-}
-
-.social-links {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.social-links a {
-  color: #ccd6f6;
-  font-size: 1.5rem;
-  transition:
-    color 0.3s ease,
-    transform 0.3s ease;
-}
-
-.social-links a:hover {
-  color: #64ffda;
-  transform: translateY(-3px);
 }
 
 .bio-section {
@@ -687,14 +704,13 @@ body.modal-open {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 50px;
+  width: 150px;
   height: 3px;
-  background-color: #64ffda;
+  background-color: var(--button-hover);
 }
 
 .timeline {
   position: relative;
-  margin: 3rem 0;
 }
 
 .timeline::before {
@@ -704,7 +720,7 @@ body.modal-open {
   top: 0;
   height: 100%;
   width: 2px;
-  background-color: #64ffda;
+  background-color: var(--button-hover);
 }
 
 .timeline-item {
@@ -716,18 +732,18 @@ body.modal-open {
 .timeline-item::before {
   content: "";
   position: absolute;
-  left: -6px;
+  left: -8px;
   top: 8px;
   width: 14px;
   height: 14px;
   border-radius: 50%;
   background-color: #0a192f;
-  border: 2px solid #64ffda;
+  border: 2px solid var(--button-hover);
 }
 
 .timeline-date {
   font-size: 0.9rem;
-  color: #64ffda;
+  color: var(--button-hover);
   margin-bottom: 0.5rem;
 }
 
@@ -771,7 +787,7 @@ body.modal-open {
 }
 
 .skill-category h4 {
-  color: #64ffda;
+  color: var(--button-hover);
   font-size: 1.25rem;
   margin-bottom: 1rem;
   text-align: center;
@@ -792,7 +808,7 @@ body.modal-open {
   content: "▹";
   position: absolute;
   left: 0;
-  color: #64ffda;
+  color: var(--button-hover);
 }
 
 @media screen and (max-width: 768px) {
@@ -858,7 +874,7 @@ body.modal-open {
 
 .contact-method i {
   font-size: 1.5rem;
-  color: #64ffda;
+  color: #ccd6f6;
   width: 2.5rem;
   height: 2.5rem;
   display: flex;
@@ -866,6 +882,12 @@ body.modal-open {
   justify-content: center;
   border-radius: 50%;
   background-color: rgba(100, 255, 218, 0.1);
+  transition: all 0.3s ease;
+}
+
+.contact-method i:hover {
+  color: var(--button-hover);
+  transform: translateY(-3px) scale(1.25);
 }
 
 .method-details h3 {
@@ -905,7 +927,7 @@ body.modal-open {
 .contact-form input,
 .contact-form textarea {
   background-color: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(100, 255, 218, 0.2);
+  border: 1px solid rgba(100, 185, 255, 0.2);
   border-radius: 4px;
   padding: 0.75rem 1rem;
   color: #e6f1ff;
@@ -917,7 +939,7 @@ body.modal-open {
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: #64ffda;
+  border-color: var(--button-hover);
 }
 
 .contact-form textarea {
@@ -926,13 +948,14 @@ body.modal-open {
 }
 
 .submit-btn {
+  background-color: rgba(10, 25, 47, 0.6); // soft dark blue background
+  border: 1px solid rgba(204, 214, 246, 0.4); // light outline similar to text color
+  color: #ccd6f6;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   background-color: transparent;
-  border: 1px solid #64ffda;
-  color: #64ffda;
   padding: 0.75rem 1.5rem;
   border-radius: 4px;
   cursor: pointer;
@@ -944,7 +967,8 @@ body.modal-open {
 }
 
 .submit-btn:hover {
-  background-color: rgba(100, 255, 218, 0.1);
+  background-color: rgba(100, 172, 255, 0.1); // a soft greenish glow, subtle
+  color: var(--button-hover); // matching hover in nav
   transform: translateY(-3px);
 }
 
@@ -992,9 +1016,5 @@ body.modal-open {
 @media screen and (max-width: 480px) {
   .submit-btn {
     width: 100%;
-  }
-
-  .social-links {
-    justify-content: center;
   }
 }
