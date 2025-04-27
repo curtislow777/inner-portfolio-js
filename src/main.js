@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import * as BIRDS from "vanta/dist/vanta.birds.min"; // Import the whole module as an object
 
 // Scene setup
 const scene = new THREE.Scene();
@@ -21,7 +22,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-camera.position.z = 5;
+camera.position.set(3.1720729394497136, 2.4108805901668737, 3.7261557906771086);
 scene.add(camera);
 
 // Create texture loaders
@@ -242,8 +243,6 @@ const animate = () => {
   });
 
   controls.update();
-
-  // Render
   renderer.render(scene, camera);
 };
 
