@@ -2,7 +2,6 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import * as BIRDS from "vanta/dist/vanta.birds.min"; // Import the whole module as an object
 
 // Scene setup
 const scene = new THREE.Scene();
