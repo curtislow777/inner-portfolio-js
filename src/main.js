@@ -136,13 +136,11 @@ const textureMap = {
   emissive: "/textures/day/Day-Emissive.webp",
 };
 
-// Load all textures
 const loadedTextures = {};
 Object.entries(textureMap).forEach(([key, path]) => {
   loadedTextures[key] = loadTexture(path);
 });
 
-// Load model and apply textures
 loader.load("/models/room-port-v1.glb", (glb) => {
   glb.scene.scale.set(0.3, 0.3, 0.3);
 
